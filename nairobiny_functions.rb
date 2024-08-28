@@ -6,11 +6,6 @@ define :flag do |flag|
   end
 end
 
-# shortcut to the bools() function
-define :b do | x |
-  b(x)
-end
-
 # shortcut to the spread() function
 define :s do |a, b|
   spread(a, b)
