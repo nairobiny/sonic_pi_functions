@@ -6,6 +6,11 @@ define :flag do |flag|
   end
 end
 
+# shortcut to the bools() function
+define :b do | x |
+  b(x)
+end
+
 # shortcut to the spread() function
 define :s do |a, b|
   spread(a, b)
@@ -165,6 +170,7 @@ end
 
 # Play the riffer pattern
 define :play_riffer_pattern do | note_pattern, timing_pattern |
+  puts "play_riffer_pattern() received #{note_pattern} and #{timing_pattern}"
   use_synth get(:riffer_synth) || :beep
   
   sd = get(:riffer_defaults) || {}
@@ -173,11 +179,11 @@ define :play_riffer_pattern do | note_pattern, timing_pattern |
     use_merged_synth_defaults k => v
   end
   
-  (timing_pattern.size * timing_pattern[0]).times do
+  timing_pattern.size.times do
     note = note_pattern.tick
     timing = timing_pattern.look
     if note != :rest
-      play note, release: timing
+      play note
     end
     sleep timing
   end
