@@ -1,6 +1,9 @@
 # sonic_pi_functions
 A collection of useful functions for Sonic Pi
 
+## flag(var)
+A simple flag function to control live_loops without having to type stop at the top of each one. Put flag(myvar) at the top of a live_loop then toggle myvar in your code to turn it on or off
+
 ## s(a, b)
 Shortcut to the inbuilt spread() function.
 I saw someone else using this and it seemed like a decent idea
